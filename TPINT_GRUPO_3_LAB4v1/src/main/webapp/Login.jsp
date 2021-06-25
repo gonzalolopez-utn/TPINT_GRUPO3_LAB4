@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Sistema | Iniciar Sesión</title>
+
+</head>
+
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="login-logo">
+			<a href="#"><b>Sistema Banco</b></a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Iniciar Sesión</p>
+
+			<form action="ServletLogin" method="Post">
+				<div class="form-group has-feedback">
+					<input type="text" name="txtNombreUsuario" id="txtUsu" value=""
+						class="form-control" placeholder="Usuario"> <span
+						class="glyphicon glyphicon-envelope form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input type="password" name="txtContra" id="txtPass" value=""
+						class="form-control" placeholder="******"> <span
+						class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
+				<div class="row">
+					<div class="col-xs-8">
+						<div class="checkbox icheck">
+							<label> <input type="checkbox"> Recuérdame
+							</label>
+						</div>
+					</div>
+					<!-- /.col -->
+					<div class="col-xs-4">
+						<input type="submit" name="btnIngresar" value="Ingresar"
+							class="btn btn-primary btn-block" />
+					</div>
+					<!-- /.col -->
+				</div>
+			</form>
+
+			<div class="social-auth-links text-center">
+				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i
+					class="fa fa-info"></i> Mensaje: </a>
+			</div>
+			<!-- /.social-auth-links -->
+
+			<a href="#">Olvide mi contraseña</a><br> <a href="#"
+				class="text-center">Registrar nuevo usuario</a>
+
+		</div>
+		<!-- /.login-box-body -->
+	</div>
+	<!-- /.login-box -->
+
+	<!-- jQuery 3 -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- Bootstrap 3.3.7 -->
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<!-- iCheck -->
+	<script src="plugins/iCheck/icheck.min.js"></script>
+	<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
+</body>
+</html>

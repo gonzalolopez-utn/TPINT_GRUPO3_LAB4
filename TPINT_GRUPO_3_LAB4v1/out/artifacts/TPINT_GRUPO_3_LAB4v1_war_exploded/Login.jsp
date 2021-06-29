@@ -42,7 +42,7 @@
 						<input type="submit" name="btnIngresar" value="Ingresar"
 							class="btn btn-primary btn-block" /><br>
 						<br>
-
+						
 					</div>
 					<!-- /.col -->
 				</div>

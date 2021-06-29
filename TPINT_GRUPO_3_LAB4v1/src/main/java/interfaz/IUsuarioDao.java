@@ -5,6 +5,6 @@ import java.sql.SQLException;
 import dominio.Usuario;
 
 public interface IUsuarioDao {
-    Boolean validate(Usuario usuario) throws SQLException;
+    String validate(Usuario usuario) throws SQLException;
 
 }

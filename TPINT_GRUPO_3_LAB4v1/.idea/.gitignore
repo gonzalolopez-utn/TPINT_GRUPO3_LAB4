@@ -10,5 +10,4 @@
 /build/
 *.iml
 /out/
-=======
->>>>>>> b7d04c4 (test)
+../.idea/

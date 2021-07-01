@@ -8,9 +8,16 @@
 </head>
 <body>
 
-	<form method="get" action="Login.jsp">
+	<form method="get" action="ServletLogin">
 
-		<input type="submit" name="btnIngresar" value="Ingresar al sistema">
+		<h2>
+			Ingrese su nombre de usuario: <input type="text"
+				name="txtNombreUsuario">
+		</h2>
+		<h2>
+			Ingrese su contraseña: <input type="text" name="txtContra"><br>
+		</h2>
+		<input type="submit" name="btnIngresar" value="Ingresar">
 
 	</form>
 

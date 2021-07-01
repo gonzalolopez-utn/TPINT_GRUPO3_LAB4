@@ -28,8 +28,10 @@ public class ServletLogin extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("btnIngresar") != null){
             Usuario usuario = new Usuario();
@@ -38,16 +40,14 @@ public class ServletLogin extends HttpServlet {
 
             IUsuarioDao usuarioDao = new UsuarioDao();
             try {
-				if(usuarioDao.validate(usuario).equals("1")){
+				if(usuarioDao.validate(usuario)){
 				    //Requestdistpacher
-				    RequestDispatcher rd = request.getRequestDispatcher("/PrincipalAdministrador.jsp");
-				    rd.forward(request, response);
-				}else if (usuarioDao.validate(usuario).equals("2")){
-				    RequestDispatcher rd = request.getRequestDispatcher("/PrincipalUsuario.jsp");
+				    // create an object of RequestDispatcher
+				    RequestDispatcher rd = request.getRequestDispatcher("/PrincipalBanco.jsp");
 				    rd.forward(request, response);
 				}else{
-					RequestDispatcher rd = request.getRequestDispatcher("/ErrorLogin.jsp");
-					rd.forward(request, response);
+				    RequestDispatcher rd = request.getRequestDispatcher("/ErrorLogin.jsp");
+				    rd.forward(request, response);
 				}
 			} catch (SQLException | ServletException | IOException e) {
 				// TODO Auto-generated catch block

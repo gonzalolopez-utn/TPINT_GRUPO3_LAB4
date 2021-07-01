@@ -15,7 +15,11 @@ public class Conexion {
 	        try
 	        {
 				Class.forName("com.mysql.jdbc.Driver");// quitar si no es necesario
+<<<<<<< HEAD
 	            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdbancoint","root","root");
+=======
+	            this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bdbanco","root","root");
+>>>>>>> b7d04c4 (test)
 	            this.connection.setAutoCommit(false);
 	        }
 	        catch(Exception e)

@@ -6,6 +6,9 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+<<<<<<< HEAD
 /build/
 *.iml
 /out/
+=======
+>>>>>>> b7d04c4 (test)

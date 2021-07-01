@@ -37,7 +37,7 @@
 <h2>ABML CUENTAS</h2>
 
 		
-					<button type="button" class="btn btn-primary" name="btnAgregarCuenta">Agregar
+					<button type="button" class="btn btn-primary" name="btnAgregarCuenta" ">Agregar
 					</button>
 				
 				
@@ -53,7 +53,7 @@
 				
 				%>
 				
-				"<table class='table table-striped table-class' id= 'table-id'>
+				"<table border="1">
     	   		<tr>
     	       <th>Id Cuenta</th>
     	        <th>Saldo</th>
@@ -70,24 +70,26 @@
     	    	   %>
     	       
     	       <tr>
-    	       <th>Id Cuenta</th>
-    	       <th><% cun.getIdcuenta(); %></th>
-    	        <th>Saldo</th>
-    	        <th><% cun.getSaldo(); %></th>
-    	        <th>Fecha</th>
-    	        <th><% cun.getSaldo(); %></th>
-    	        <th>CBU</th>
-    	        <th><% cun.getCbu(); %></th>
-    	       <th>Estado</th>
-    	       <th><% cun.getEstado(); %></th>
-    	       <th>Tipo de cuenta</th>
-    	       <th><% cun.getTipoCuenta(); %></th>
-    	       <th>DNI </th>
-    	       <th><% cun.getDni(); %></th>
-    	       <th>Nombre de usuario</th>
-    	       <th><% cun.getUsuario(); %></th>
+    	       
+    	       <td><%= cun.getIdcuenta() %></td>
+    	       
+    	        <td><%= cun.getSaldo() %></td>
+    	       
+    	        <td><%= cun.getSaldo() %></td>
+    	      
+    	        <td><%= cun.getCbu() %></td>
+    	      
+    	       <td><%= cun.getEstado() %></td>
+    	       
+    	       <td><%= cun.getTipoCuenta() %></td>
+    	      
+    	       <td><%= cun.getDni() %></td>
+    	      
+    	       <td><%= cun.getUsuario() %></td>
     	       </tr>
-    	       <% }; %>
+    	       
+    	       <% } %>
 				</table>
+				
 </body>
 </html>

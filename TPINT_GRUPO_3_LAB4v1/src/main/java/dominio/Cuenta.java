@@ -1,6 +1,6 @@
 package dominio;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.UUID;
 
 public class Cuenta {
@@ -52,8 +52,8 @@ public class Cuenta {
 	public Date getFecha() {
 		return Fecha;
 	}
-	public void setFecha(Date fecha) {
-		Fecha = fecha;
+	public void setFecha(Date date) {
+		Fecha = date;
 	}
 	public String getCbu() {
 		return Cbu;

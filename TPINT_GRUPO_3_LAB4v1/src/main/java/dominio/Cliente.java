@@ -7,40 +7,42 @@ public class Cliente {
 	private String Nacionalidad;
 	private String CorreoElectronico;
 	private String Telefono;
-	private String Usuario;
-	private String Password;
 	private String Cuil;
-	private int Dni;
+	private String Dni;
 	private String FechaNac;
 	private String Localidad;
 	private String Provincia;
 	private String Direccion;
 	private int TipoUsuario;
 	private int Estado;
+	private Usuario usuario;
 	
 	
 	public Cliente()
 	{
 		super();
 		CorreoElectronico = "Sin correo";
-		Password = "Sin Password";
 		Estado = 1;
 		TipoUsuario = 1;
 	}
 
 
-	public Cliente(String nombre, String apellido, String sexo, String nacionalidad, String correoElectronico,
-			String telefono, String usuario, String password, String cuil, int dni, String fechaNac, String localidad,
-			String provincia, String direccion, int tipoUsuario, int estado) {
-		super();
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
+	public Cliente(String nombre, String apellido, String sexo, String nacionalidad, String correoElectronico, String telefono, String cuil, String dni, String fechaNac, String localidad, String provincia, String direccion, int tipoUsuario, int estado, Usuario usuario) {
 		Nombre = nombre;
 		Apellido = apellido;
 		Sexo = sexo;
 		Nacionalidad = nacionalidad;
 		CorreoElectronico = correoElectronico;
 		Telefono = telefono;
-		Usuario = usuario;
-		Password = password;
 		Cuil = cuil;
 		Dni = dni;
 		FechaNac = fechaNac;
@@ -49,10 +51,8 @@ public class Cliente {
 		Direccion = direccion;
 		TipoUsuario = tipoUsuario;
 		Estado = estado;
+		this.usuario = usuario;
 	}
-
-
-
 
 	// Getters and Setters
 	public String getNombre() {
@@ -115,26 +115,6 @@ public class Cliente {
 	}
 
 
-	public String getUsuario() {
-		return Usuario;
-	}
-
-
-	public void setUsuario(String usuario) {
-		Usuario = usuario;
-	}
-
-
-	public String getPassword() {
-		return Password;
-	}
-
-
-	public void setPassword(String password) {
-		Password = password;
-	}
-
-
 	public String getCuil() {
 		return Cuil;
 	}
@@ -145,12 +125,12 @@ public class Cliente {
 	}
 
 
-	public int getDni() {
+	public String getDni() {
 		return Dni;
 	}
 
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		Dni = dni;
 	}
 
@@ -213,15 +193,6 @@ public class Cliente {
 		Estado = estado;
 	}
 
-
-	@Override
-	public String toString() {
-		return "Cliente [Nombre=" + Nombre + ", Apellido=" + Apellido + ", Sexo=" + Sexo + ", Nacionalidad="
-				+ Nacionalidad + ", CorreoElectronico=" + CorreoElectronico + ", Telefono=" + Telefono + ", Usuario="
-				+ Usuario + ", Password=" + Password + ", Cuil=" + Cuil + ", Dni=" + Dni + ", FechaNac=" + FechaNac
-				+ ", Localidad=" + Localidad + ", Provincia=" + Provincia + ", Direccion=" + Direccion
-				+ ", TipoUsuario=" + TipoUsuario + ", Estado=" + Estado + "]";
-	}
 	
 
 }

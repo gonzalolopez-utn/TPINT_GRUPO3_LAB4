@@ -43,7 +43,6 @@ public class ServletCuentas extends HttpServlet {
 			
 			CuentasDao cdao = new CuentasDao();
 			ArrayList<Cuenta> lista = cdao.obtenerCuentas();
-			
 			request.setAttribute("ListaC", lista);
 			RequestDispatcher rd = request.getRequestDispatcher("/ABMLCuentas_Listado.jsp");
 			rd.forward(request, response);

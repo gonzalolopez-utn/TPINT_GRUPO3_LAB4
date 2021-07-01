@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dominio.Cliente;
 import daoImpl.ClienteDaoImpl;
+import dominio.Usuario;
 
 /**
  * Servlet implementation class ServletClientes
@@ -28,11 +29,12 @@ public class ServletClientes extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean filas=false;
+		boolean creado=false;
 		if(request.getParameter("aceptarCliente")!=null)
 		{
 			Cliente c = new Cliente();
-			c.setDni(Integer.valueOf(request.getParameter("txtDNI")));
+			Usuario usuario = new Usuario();
+			c.setDni(request.getParameter("txtDNI"));
 			c.setCuil(request.getParameter("txtCuil"));
 			c.setNombre(request.getParameter("txtNombreCli"));
 			c.setApellido(request.getParameter("txtApellido"));
@@ -44,24 +46,55 @@ public class ServletClientes extends HttpServlet {
 			c.setProvincia(request.getParameter("Provincia"));
 			c.setCorreoElectronico(request.getParameter("txtCorreo"));
 			c.setTelefono(request.getParameter("txtTelefono"));
-			c.setUsuario(request.getParameter("txtUsuario"));
-			c.setPassword(request.getParameter("txtPass"));
-			c.setTipoUsuario(1);
+			usuario.setUsuario(request.getParameter("txtUsuario"));
+			usuario.setContra(request.getParameter("txtPass"));
+			usuario.setDni(c.getDni());
+			usuario.setEstado(1);
+			c.setUsuario(usuario);
 			ClienteDaoImpl cd = new ClienteDaoImpl();
-			filas=cd.insert(c);	
+			if(cd.insert(c)){
+				if(cd.insertUsuario(c)){
+					creado = true;
+				}
+			};
 		}
-		request.setAttribute("Fila", filas);
-		RequestDispatcher rd = request.getRequestDispatcher("/ABMClientes.jsp");
+		request.setAttribute("Creado", creado);
+		RequestDispatcher rd = request.getRequestDispatcher("/AMBClientes.jsp");
 	    rd.forward(request, response);
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		 if(request.getParameter("validarCliente")!=null){
+		 	String dniValidar = request.getParameter("txtVerificarDni");
+		 	ClienteDaoImpl clienteDao = new ClienteDaoImpl();
+		 	Cliente cliente = clienteDao.getClientePorDni(dniValidar);
+			 request.setAttribute("ClienteValidado", cliente);
+			 RequestDispatcher rd = request.getRequestDispatcher("/AMBClientes.jsp");
+			 rd.forward(request, response);
+		 }
+		 if(request.getParameter("btnModificarCliente")!=null){
+			 Cliente c = new Cliente();
+			 c.setDni(request.getParameter("txtDNI"));
+			 c.setCuil(request.getParameter("txtCuil"));
+			 c.setNombre(request.getParameter("txtNombreCli"));
+			 c.setApellido(request.getParameter("txtApellido"));
+			 c.setSexo(request.getParameter("rbtnSexo"));
+			 c.setNacionalidad(request.getParameter("txtNacionalidad"));
+			 c.setFechaNac(request.getParameter("txtfecNac"));
+			 c.setDireccion(request.getParameter("txtDireccion"));
+			 c.setLocalidad(request.getParameter("txtLocalidad"));
+			 c.setProvincia(request.getParameter("Provincia"));
+			 c.setCorreoElectronico(request.getParameter("txtCorreo"));
+			 c.setTelefono(request.getParameter("txtTelefono"));
+			 ClienteDaoImpl clienteDao = new ClienteDaoImpl();
+			 Boolean clienteModificado = clienteDao.modify(c);
+			 request.setAttribute("ClienteModificado", clienteModificado);
+			 RequestDispatcher rd = request.getRequestDispatcher("/AMBClientes.jsp");
+			 rd.forward(request, response);
+		}
 	}
 
 }

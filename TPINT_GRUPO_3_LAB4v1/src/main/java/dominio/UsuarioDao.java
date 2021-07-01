@@ -12,11 +12,8 @@ import java.sql.Connection;
 import interfaz.IUsuarioDao;
 
 public class UsuarioDao implements IUsuarioDao {
-<<<<<<< HEAD
-	private static final String validate = "SELECT u.idTiposUsuario From Usuarios as u inner Join TipoUsuario as tipo on tipo.idTiposUsuario = u.idTiposUsuario where u.Usuario = ? and u.Contraseña = ? and u.Estado = 1";
-=======
-	private static final String validate = "SELECT u.idTipoUsuario From Usuarios as u inner Join TipoUsuario as tipo on tipo.idTipoUsuario = u.idTipoUsuario where u.Usuario = ? and u.Contra = ? and u.Estado = 1 ";
->>>>>>> b7d04c4 (test)
+
+	private static final String validate = "SELECT u.idTiposUsuario From Usuarios as u inner Join TipoUsuario as tipo on tipo.idTiposUsuario = u.idTiposUsuario where u.Usuario = ? and u.Contraseña = ? and u.Estado = 1 ";
 
     public String validate(Usuario usuario) throws SQLException {
     	String result = null;

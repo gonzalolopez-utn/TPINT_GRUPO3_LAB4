@@ -1,8 +1,5 @@
 package daoImpl;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import dominio.Cuenta;
@@ -26,7 +23,7 @@ public class CuentaDaoImpl implements dominio.CuentaDao
 			statement = conexion.prepareStatement(insert);
 			statement.setInt(1, cuenta.getIdcuenta());
 			statement.setFloat(2, cuenta.getSaldo());
-			statement.setString(3, cuenta.getFecha());
+			statement.setDate(3, (Date) cuenta.getFecha());
 			statement.setString(4, cuenta.getCbu());
 			statement.setInt(5, cuenta.getEstado());
 			statement.setInt(6, cuenta.getTipoCuenta());
@@ -52,7 +49,7 @@ public class CuentaDaoImpl implements dominio.CuentaDao
 	}
 
 	/**
-	 * @param Objeto cuenta a modificar
+	 * @param  cuenta a modificar
 	 * @return Retorna true si modific�, sino, retorna false
 	 */
 	public Boolean Modify(Cuenta cuenta, int IdCuenta) {
@@ -63,7 +60,7 @@ public class CuentaDaoImpl implements dominio.CuentaDao
 		{
 			statement = conexion.prepareStatement(update);
 			statement.setFloat(1, cuenta.getSaldo());
-			statement.setString(2, cuenta.getFecha());
+			statement.setDate(2, (Date) cuenta.getFecha());
 			statement.setString(3, cuenta.getCbu());
 			statement.setInt(4, cuenta.getEstado());
 			statement.setInt(5, cuenta.getTipoCuenta());
@@ -136,7 +133,6 @@ public class CuentaDaoImpl implements dominio.CuentaDao
 
 
 	/**
-	 * @param Objeto resulSet que obtiene de la query.
 	 *
 	 * @return Retorna una nueva instancia de cuenta.
 	 */
@@ -145,7 +141,7 @@ public class CuentaDaoImpl implements dominio.CuentaDao
 		Cuenta c = new Cuenta();
 		c.setIdcuenta(resultSet.getInt("idcuenta"));
 		c.setSaldo(resultSet.getFloat("saldo"));
-		c.setFecha(resultSet.getString("fecha"));
+		c.setFecha(resultSet.getDate("fecha"));
 		c.setCbu(resultSet.getString("cbu"));
 		c.setEstado(resultSet.getInt("estado"));
 		c.setTipoCuenta(resultSet.getInt("tipocuenta"));

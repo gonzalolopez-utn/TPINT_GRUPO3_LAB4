@@ -1,11 +1,12 @@
 package dominio;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class Cuenta {
 	private int Idcuenta;
 	private float Saldo;
-	private String Fecha;
+	private Date Fecha;
 	private String Cbu;
 	private int estado;
 	private int TipoCuenta;
@@ -22,7 +23,7 @@ public class Cuenta {
 		Cbu = uuid;
 	}
 	
-	public Cuenta(float saldo, String fecha, String cbu, int estado, int tipoCuenta, int dni,
+	public Cuenta(float saldo, Date fecha, String cbu, int estado, int tipoCuenta, int dni,
 			String usuario) {
 		super();
 		Saldo = saldo;
@@ -48,10 +49,10 @@ public class Cuenta {
 	public void setSaldo(float saldo) {
 		Saldo = saldo;
 	}
-	public String getFecha() {
+	public Date getFecha() {
 		return Fecha;
 	}
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		Fecha = fecha;
 	}
 	public String getCbu() {

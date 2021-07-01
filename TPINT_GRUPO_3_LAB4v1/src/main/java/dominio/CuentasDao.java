@@ -11,35 +11,32 @@ import dominio.Cuenta;
 public class CuentasDao {
 
 	private String host = "jdbc:mysql://localhost:3306/";
-	private String user = "root";
-	private String pass = "0000";
+	private String user = "admina";
+	private String pass = "Spartacus.2019";
 	private String dbname = "bdbancoint";
 	
 	
 	
 	public ArrayList<Cuenta> obtenerCuentas() {
-	
-	
-	
+
+
 	try {Class.forName("com.mysql.cj.jdbc.Driver");
-	} 
+	}
 	catch (ClassNotFoundException e) {
 		e.printStackTrace();
 	}
-	
+
 	ArrayList<Cuenta> lista = new ArrayList<Cuenta>();
 	Connection conn = null;
 	try {
-		conn = DriverManager.getConnection(host + dbname + user + pass);
+		conn = DriverManager.getConnection(host + dbname,user,pass);
 		Statement st = conn.createStatement();
-		
+
 		ResultSet rs = st.executeQuery("Select * FROM cuentas");
 		
 		while(rs.next()) {
 			
 			Cuenta cuenta = new Cuenta();
-			
-			
 			cuenta.setIdcuenta(rs.getInt("idcuenta"));
 			cuenta.setSaldo(rs.getFloat("saldo"));
 			cuenta.setFecha(rs.getDate("fecha"));

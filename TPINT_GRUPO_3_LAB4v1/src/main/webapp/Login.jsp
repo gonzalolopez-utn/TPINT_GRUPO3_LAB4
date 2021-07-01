@@ -17,13 +17,8 @@
 	</header>
 
 		<div>
-<<<<<<< HEAD
 
 
-=======
-
-
->>>>>>> b7d04c4 (test)
 			<p class="centrar">Iniciar Sesión</p>
 
 			<form class="centrar" action="ServletLogin" method="Post">
@@ -59,9 +54,5 @@
 		</div>
 		<!-- /.login-box-body -->
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b7d04c4 (test)
 </body>
 </html>

@@ -23,11 +23,11 @@
 		<tbody>
 			<tr>
 				<td>
-					<button type="submit" class="btn btn-primary">ABML CLIENTES
+					<button type="button" src="/ABMLClientes.jsp" class="btn btn-primary">ABML CLIENTES
 					</button>
 				</td>
 				<td>
-					<button type="submit" class="btn btn-primary">ABML CUENTAS</button>
+					<a href="AMBClientes.jsp"><button type="submit" class="btn btn-primary">ABML CUENTAS</button></a>
 					</td>
 				<td><button type="submit" class="btn btn-primary">Autorización Prestamos</button></td>
 				<td><button type="submit" class="btn btn-primary">Informes</button></td> 

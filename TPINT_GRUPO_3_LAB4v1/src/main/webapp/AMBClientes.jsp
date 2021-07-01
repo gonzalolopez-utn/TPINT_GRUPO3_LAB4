@@ -90,20 +90,12 @@
 	Contraseña: <input type="text" required name="txtPass"/>
 	<br>
 	<button type="submit" class="btn btn-primary" name="aceptarCliente">Aceptar </button>
-</form>	
+</form>
 <%} %>
 
-<% 
-	int fila=0;
-	if (request.getAttribute("fila")=!null)
-	{
-		fila= Integer.parseInt(request.getAttribute("fila"));
-	}
-	if (fila=1)
-	{
-%>
+
 <h3>Cliente agregado correctamente.</h3>
-<%} %>
+
 
 <% if (request.getParameter("btnModifCli")!=null)
 	{%>

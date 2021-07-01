@@ -35,6 +35,7 @@
 						<div class="checkbox icheck">
 							<label> <input type="checkbox"> Recuérdame
 							</label>
+							<br>
 						</div>
 					</div>
 					<!-- /.col -->
@@ -46,13 +47,11 @@
 					</div>
 					<!-- /.col -->
 				</div>
-				<a class="centrar" href="#">Olvide mi contraseña</a>
 			</form>
 			<br>
 
 		</div>
 		<!-- /.login-box-body -->
-
 
 </body>
 </html>
